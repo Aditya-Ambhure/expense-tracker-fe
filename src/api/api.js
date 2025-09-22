@@ -2,7 +2,7 @@
 // src/api/api.js
 import axios from 'axios';
 
-const API_BASE = 'http://localhost:5000'; // change at deploy
+const API_BASE = 'https://expense-tracker-be-taupe.vercel.app/'; // change at deploy
 
 const api = axios.create({
   baseURL: API_BASE + '/api',
