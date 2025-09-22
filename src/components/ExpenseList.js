@@ -1,8 +1,8 @@
-
 // src/components/ExpenseList.js
 import React, { useContext } from 'react';
 import { ExpenseContext } from '../context/ExpenseContext';
 import api from '../api/api';
+import './ExpenseList.css'; // Import the CSS
 
 export default function ExpenseList() {
   const { expenses, fetchExpenses, loading } = useContext(ExpenseContext);
@@ -22,29 +22,31 @@ export default function ExpenseList() {
   if (!expenses || expenses.length === 0) return <div>No expenses yet.</div>;
 
   return (
-    <table style={{ width: '100%', borderCollapse: 'collapse' }}>
-      <thead>
-        <tr style={{ borderBottom: '1px solid #ddd' }}>
-          <th style={{ textAlign: 'left', padding: 8 }}>Amount</th>
-          <th style={{ textAlign: 'left', padding: 8 }}>Category</th>
-          <th style={{ textAlign: 'left', padding: 8 }}>Date</th>
-          <th style={{ textAlign: 'left', padding: 8 }}>Description</th>
-          <th style={{ textAlign: 'left', padding: 8 }}>Action</th>
-        </tr>
-      </thead>
-      <tbody>
-        {expenses.map(exp => (
-          <tr key={exp._id} style={{ borderBottom: '1px solid #f0f0f0' }}>
-            <td style={{ padding: 8 }}>{exp.amount}₹</td>
-            <td style={{ padding: 8 }}>{exp.category}</td>
-            <td style={{ padding: 8 }}>{new Date(exp.date).toLocaleDateString()}</td>
-            <td style={{ padding: 8 }}>{exp.description}</td>
-            <td style={{ padding: 8 }}>
-              <button onClick={() => handleDelete(exp._id)}>Delete</button>
-            </td>
+    <div className="table-container">
+      <table className="responsive-table">
+        <thead>
+          <tr>
+            <th>Amount</th>
+            <th>Category</th>
+            <th>Date</th>
+            <th>Description</th>
+            <th>Action</th>
           </tr>
-        ))}
-      </tbody>
-    </table>
+        </thead>
+        <tbody>
+          {expenses.map((exp) => (
+            <tr key={exp._id}>
+              <td>{exp.amount}₹</td>
+              <td>{exp.category}</td>
+              <td>{new Date(exp.date).toLocaleDateString()}</td>
+              <td>{exp.description}</td>
+              <td>
+                <button onClick={() => handleDelete(exp._id)}>Delete</button>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
   );
 }
