@@ -1,0 +1,226 @@
+/* =======================
+   Dashboard General Styling
+======================= */
+.dashboard {
+  margin: 0 auto;
+  padding: 20px;
+  min-height: 100vh;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: linear-gradient(145deg, #1e1f29, #2b2d42); /* dark gradient background */
+  color: #ffffff;
+}
+
+/* Dashboard Title */
+.dashboard-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #ff6ec7; /* neon pink accent */
+  text-align: center;
+  margin-bottom: 1rem;
+  letter-spacing: -0.025em;
+}
+
+/* Welcome Text */
+.welcome-text {
+  font-size: 1.2rem;
+  color: #dcd6f7;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.welcome-text strong {
+  color: #ff6ec7;
+}
+
+/* =======================
+   Glassmorphism Card Base
+======================= */
+.card,
+.chart-container,
+.selector-card,
+.total-card,
+.section-card {
+  background: rgba(255, 255, 255, 0.05); /* subtle transparent glass */
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.25);
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.card:hover,
+.chart-container:hover,
+.selector-card:hover,
+.total-card:hover,
+.section-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 40px rgba(255, 255, 255, 0.16);
+}
+
+/* =======================
+   Month Selector Card
+======================= */
+.selector-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.selector-label {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #dcd6f7;
+}
+
+.month-input {
+  padding: 0.65rem;
+  border: 1px solid rgba(255, 110, 199, 0.4);
+  border-radius: 14px;
+  font-size: 1rem;
+  color: #ffffff;
+  background-color: rgba(255, 110, 199, 0.1);
+  backdrop-filter: blur(12px);
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.month-input:focus {
+  outline: none;
+  border-color: #ff6ec7;
+  box-shadow: 0 0 0 3px rgba(255, 110, 199, 0.3);
+}
+
+/* =======================
+   Total Spending Card
+======================= */
+.total-card {
+  text-align: center;
+  padding: 1.5rem;
+}
+
+.total-card h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #dcd6f7;
+  margin-bottom: 1rem;
+}
+
+.total-amount {
+  font-size: 2rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #ff6ec7, #8338ec);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* =======================
+   Section Cards
+======================= */
+.section-card h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #dcd6f7;
+  margin-bottom: 1.5rem;
+}
+
+/* =======================
+   Chart Container
+======================= */
+.chart-container {
+  padding: 1rem;
+}
+
+.chart-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #dcd6f7;
+  margin-bottom: 0.75rem;
+  text-align: center;
+}
+
+.chart-container canvas {
+  max-height: 300px;
+  width: 100% !important;
+}
+
+/* =======================
+   Animations
+======================= */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.card,
+.chart-container {
+  animation: fadeIn 0.5s ease-out;
+}
+
+/* =======================
+   Responsive Design
+======================= */
+@media (max-width: 1024px) {
+  .dashboard-title {
+    font-size: 2.25rem;
+  }
+  .total-amount {
+    font-size: 1.8rem;
+  }
+  .section-card h3 {
+    font-size: 1.35rem;
+  }
+  .chart-title {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .dashboard {
+    padding: 15px;
+  }
+  .selector-card {
+    flex-direction: column;
+    text-align: center;
+  }
+  .month-input {
+    width: 100%;
+    max-width: 250px;
+  }
+  .dashboard-title {
+    font-size: 2rem;
+  }
+  .total-amount {
+    font-size: 1.6rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .dashboard-title {
+    font-size: 1.75rem;
+  }
+  .welcome-text {
+    font-size: 1rem;
+  }
+  .total-card h3 {
+    font-size: 1.25rem;
+  }
+  .total-amount {
+    font-size: 1.4rem;
+  }
+  .section-card h3 {
+    font-size: 1.2rem;
+  }
+  .chart-title {
+    font-size: 0.95rem;
+  }
+}
