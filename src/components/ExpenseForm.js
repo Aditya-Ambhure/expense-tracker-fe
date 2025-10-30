@@ -45,4 +45,4 @@ export default function ExpenseForm() {
       <button type="submit" disabled={busy}>{busy ? 'Adding...' : 'Add'}</button>
     </form>
   );
-}
+}   
